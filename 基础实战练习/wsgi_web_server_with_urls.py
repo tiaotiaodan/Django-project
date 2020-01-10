@@ -5,14 +5,11 @@
 
 from wsgiref.simple_server import make_server
 
+# 1.路由的分发器，负责把URL 匹配到对应的函数
+# 2.开发好对应 的业务 函数
+# 3.一个请求来了之后，先走路由分发器，如果找到对应的function，就执行，如果没有找到，就返回404错误
 
 def run_server(environ, start_response):
-    """
-    当有用户在浏览器上访问：http://127.0.0.1:8888/, 立即执行该函数并将函数的返回值返回给用户浏览器
-    :param environ: 请求相关内容，比如浏览器类型、版本、来源地址、url等
-    :param start_response: 响应相关
-    :return:
-    """
 
     start_response('200 OK', [('Content-Type', 'text/html;charset=utf-8')])
     return [bytes('<h1>这美女是哪里的啊!!', encoding='utf-8'), ]
